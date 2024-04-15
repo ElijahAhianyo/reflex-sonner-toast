@@ -1,2 +1,9 @@
-# reflex-sonner-toast
-A reflex third party component wrapping the Sonner toast component
+# sonner-toast
+
+A Reflex custom component sonner-toast.
+
+## Installation
+
+```bash
+pip install reflex-sonner-toast
+```
