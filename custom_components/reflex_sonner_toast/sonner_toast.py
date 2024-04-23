@@ -66,6 +66,19 @@ class Toast(rx.Fragment, CommonProps):
     def _exclude_props(self) -> list[str]:
         return ["method_name"]
 
+open_var_data = VarData(
+    hooks={
+        "const [open, setOpen] = useState(true)": None,
+    },
+)
+
+open = BaseVar(
+    _var_name="() => setOpen(false)",
+    _var_type=str,
+    _var_data=open_var_data
+)
+
+on_click=rx.call_script(open)
 
 class ToastMessage(Toast):
     method_name = "toast.message"
