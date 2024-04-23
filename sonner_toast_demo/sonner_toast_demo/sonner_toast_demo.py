@@ -12,9 +12,6 @@ filename = f"{config.app_name}/{config.app_name}.py"
 class State(rx.State):
     """The app state."""
 
-    def so_something(self):
-        pass
-
 
 def index() -> rx.Component:
     return rx.center(
@@ -36,5 +33,4 @@ def index() -> rx.Component:
 
 # Add state and page to the app.
 app = rx.App()
-app.add_page(index, on_load=toast.messaage("The page has loaded!"))
-# app.add_page(index, on_load=rx.console_log("Hey there page has loaded"))
+app.add_page(index)
