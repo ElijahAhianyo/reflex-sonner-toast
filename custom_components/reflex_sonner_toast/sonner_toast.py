@@ -53,10 +53,11 @@ class Toast(rx.Fragment, CommonProps):
     @classmethod
     def get_toast_var(cls, content, method_name, props):
         prop_str = format.wrap(", ".join([cls.format(p) for p in props]), "{")
+        content_var = rx.Var.create(content)
         toast_var = BaseVar(
-            _var_name=f"{method_name}('{serialize(content)}', {prop_str})",
+            _var_name=f"{method_name}(`{content_var}`, {prop_str})",
             _var_type=str,
-            _var_data=toast_var_data,
+            _var_data=toast_var_data.merge(content_var._var_data, toast_var_data),
         )
         return toast_var
 
